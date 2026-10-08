@@ -1,0 +1,408 @@
+CT-001 - Acessar tela de Modelos
+Objetivo: Verificar se a tela de modelos é carregada corretamente.
+Passos:
+1º - Acessar o ambiente.
+2º - Acessar a tela de Modelos.
+Resultado esperado:
+- A tela deve ser carregada sem erros.
+- Os filtros devem ser apresentados.
+- A tabela deve ser apresentada.
+- O botão "Novo modelo" deve estar disponível.
+
+CT-002 - Carregamento inicial dos dados
+Objetivo: Verificar se os registros são carregados corretamente ao acessar a tela.
+Passos:
+1º - Acessar a tela de Modelos.
+2º - Aguardar o carregamento dos dados.
+Resultado esperado:
+- Os registros existentes devem ser apresentados na tabela.
+- Nenhum erro deve ser apresentado ao usuário.
+
+CT-003 - Filtrar por Tipo
+Objetivo: Verificar o funcionamento do filtro por Tipo.
+Passos:
+1º - Acessar o filtro "Tipo".
+2º - Selecionar um Tipo existente.
+3º - Verificar os registros apresentados na tabela.
+Resultado esperado:
+- A tabela deve apresentar somente os registros correspondentes ao Tipo selecionado.
+
+CT-004 - Filtrar por Fabricante
+Objetivo: Verificar o funcionamento do filtro por Fabricante.
+Passos:
+1º - Acessar o filtro "Fabricante".
+2º - Selecionar um Fabricante existente.
+3º - Verificar os registros apresentados na tabela.
+Resultado esperado:
+- A tabela deve apresentar somente os registros correspondentes ao Fabricante selecionado.
+
+CT-005 - Filtrar por Família
+Objetivo: Verificar o funcionamento do filtro por Família.
+Passos:
+1º - Selecionar um Fabricante.
+2º - Acessar o filtro "Família".
+3º - Selecionar uma Família disponível.
+4º - Verificar os registros apresentados na tabela.
+Resultado esperado:
+- A tabela deve apresentar somente os registros correspondentes ao Fabricante e à Família selecionados.
+
+CT-006 - Verificar comportamento de Família sem Fabricante
+Objetivo: Verificar o comportamento do campo Família quando nenhum Fabricante estiver selecionado.
+Passos:
+1º - Acessar a tela de Modelos.
+2º - Não selecionar nenhum Fabricante.
+3º - Acessar o filtro "Família".
+Resultado esperado:
+- O campo Família deve permanecer desabilitado ou apresentar uma orientação para que um Fabricante seja selecionado antes.
+
+CT-007 - Alterar Fabricante após selecionar Família
+Objetivo: Verificar se a Família é atualizada corretamente após a alteração do Fabricante.
+Passos:
+1º - Selecionar um Fabricante.
+2º - Selecionar uma Família.
+3º - Alterar o Fabricante.
+4º - Verificar o campo Família.
+Resultado esperado:
+- As opções de Família devem ser atualizadas de acordo com o novo Fabricante.
+- Caso a Família anteriormente selecionada não pertença ao novo Fabricante, ela deve ser removida.
+
+CT-008 - Filtrar por Molicar
+Objetivo: Verificar o funcionamento do filtro por Molicar.
+Passos:
+1º - Informar um Molicar existente.
+2º - Aguardar o processamento da pesquisa.
+3º - Verificar os registros apresentados.
+Resultado esperado:
+- Deve ser apresentado o registro correspondente ao Molicar informado.
+
+CT-009 - Filtrar por Modelo
+Objetivo: Verificar o funcionamento do filtro por Modelo.
+Passos:
+1º - Informar um Modelo existente.
+2º - Aguardar o processamento da pesquisa.
+3º - Verificar os registros apresentados.
+Resultado esperado:
+- A tabela deve ser atualizada de acordo com o Modelo informado.
+
+CT-010 - Utilizar múltiplos filtros
+Objetivo: Verificar se os filtros podem ser utilizados simultaneamente.
+Passos:
+1º - Selecionar um Tipo.
+2º - Selecionar um Fabricante.
+3º - Selecionar uma Família.
+4º - Informar um Modelo ou Molicar.
+5º - Verificar os registros apresentados.
+Resultado esperado:
+- A tabela deve apresentar somente os registros que atendam simultaneamente aos critérios informados.
+
+CT-011 - Pesquisa sem resultados
+Objetivo: Verificar o comportamento da tela quando nenhum registro corresponde aos filtros utilizados.
+Passos:
+1º - Informar um valor inexistente em um dos filtros.
+2º - Executar a pesquisa.
+Resultado esperado:
+- Nenhum registro deve ser apresentado.
+- Deve existir uma mensagem informando que nenhum registro foi encontrado ou outra indicação clara de que a pesquisa não retornou resultados.
+
+CT-012 - Abrir cadastro de novo modelo
+Objetivo: Verificar se o dialog de cadastro é aberto corretamente.
+Passos:
+1º - Clicar em "Novo modelo".
+Resultado esperado:
+- O dialog deve ser aberto.
+- Os campos devem estar disponíveis para preenchimento.
+- Os campos não devem apresentar dados de outro registro.
+
+CT-013 - Cadastrar modelo com dados válidos
+Objetivo: Verificar se é possível cadastrar um modelo com dados válidos.
+Passos:
+1º - Clicar em "Novo modelo".
+2º - Preencher os campos obrigatórios com dados válidos.
+3º - Clicar em "Salvar".
+Resultado esperado:
+- O modelo deve ser cadastrado com sucesso.
+- O registro deve ser apresentado na tabela.
+
+CT-014 - Tentar cadastrar modelo sem preencher campos obrigatórios
+Objetivo: Verificar a validação dos campos obrigatórios.
+Passos:
+1º - Clicar em "Novo modelo".
+2º - Não preencher os campos obrigatórios.
+3º - Clicar em "Salvar".
+Resultado esperado:
+- O cadastro não deve ser realizado.
+- Os campos obrigatórios devem apresentar indicação de erro.
+
+CT-015 - Cancelar cadastro de novo modelo
+Objetivo: Verificar se é possível cancelar o cadastro sem salvar os dados.
+Passos:
+1º - Clicar em "Novo modelo".
+2º - Preencher alguns campos.
+3º - Fechar ou cancelar o dialog.
+4º - Abrir novamente "Novo modelo".
+Resultado esperado:
+- O cadastro não deve ser realizado.
+- Os campos devem estar limpos ao abrir um novo cadastro.
+
+CT-016 - Verificar relacionamento entre Fabricante e Família no cadastro
+Objetivo: Verificar se somente Famílias relacionadas ao Fabricante selecionado podem ser utilizadas.
+Passos:
+1º - Clicar em "Novo modelo".
+2º - Selecionar um Fabricante.
+3º - Verificar as opções disponíveis em Família.
+4º - Selecionar uma Família.
+5º - Preencher os demais campos.
+6º - Salvar.
+7º - Consultar o registro criado.
+Resultado esperado:
+- O registro deve ser criado com Fabricante e Família compatíveis.
+- Não deve ser possível cadastrar uma Família incompatível com o Fabricante.
+
+CT-017 - Verificar classificação do Tipo no cadastro
+Objetivo: Verificar se o Tipo do veículo é definido corretamente durante o cadastro.
+Passos:
+1º - Clicar em "Novo modelo".
+2º - Selecionar uma Fabricante e Família relacionadas a um tipo específico de veículo.
+3º - Preencher os demais campos obrigatórios.
+4º - Salvar.
+5º - Consultar o registro criado.
+Resultado esperado:
+- O registro deve possuir o Tipo correspondente à Fabricante e Família selecionadas.
+
+CT-018 - Cadastrar Família de motocicleta e verificar Tipo
+Objetivo: Verificar a consistência entre Família e Tipo do veículo.
+Passos:
+1º - Clicar em "Novo modelo".
+2º - Selecionar uma Fabricante.
+3º - Selecionar uma Família relacionada a uma motocicleta.
+4º - Preencher os demais campos obrigatórios.
+5º - Salvar.
+6º - Consultar o registro criado.
+Resultado esperado:
+- O registro deve ser classificado como o Tipo correspondente à Família selecionada.
+Resultado encontrado:
+- O registro foi cadastrado como "AUTOMOVEL".
+Status:
+- Falha.
+
+CT-019 - Validar formato do Molicar
+Objetivo: Verificar se o campo Molicar aceita somente valores no formato esperado.
+Passos:
+1º - Abrir "Novo modelo".
+2º - Informar diferentes formatos de Molicar, como "01708737-5", "017087375", "ABCDEFGH-I" e "1234567A-9".
+3º - Verificar o comportamento do campo.
+4º - Tentar salvar o cadastro.
+Resultado esperado:
+- O sistema deve aceitar somente o formato definido para o campo.
+- Valores inválidos devem ser impedidos ou apresentar mensagem de erro.
+
+CT-020 - Validar quantidade de caracteres do Molicar
+Objetivo: Verificar se o campo Molicar possui limite de caracteres.
+Passos:
+1º - Abrir "Novo modelo".
+2º - Informar um Molicar < 10 caracteres.
+3º - Informar um Molicar > 10 caracteres.
+Resultado esperado:
+- O sistema deve impedir valores fora do limite definido ou apresentar mensagem informando o formato esperado.
+
+CT-021 - Validar campos de Ano com caracteres inválidos
+Objetivo: Verificar se os campos Ano início e Ano fim aceitam somente valores numéricos válidos.
+Passos:
+1º - Abrir "Novo modelo".
+2º - Informar letras no campo Ano início.
+3º - Informar letras no campo Ano fim.
+4º - Tentar salvar.
+Resultado esperado:
+- O sistema deve impedir caracteres inválidos ou apresentar mensagem informando que o valor é inválido.
+
+CT-022 - Validar quantidade de caracteres dos campos de Ano
+Objetivo: Verificar se os campos Ano início e Ano fim possuem limite adequado de caracteres.
+Passos:
+1º - Informar um valor com quantidade de caracteres superior ao esperado.
+2º - Tentar salvar.
+Resultado esperado:
+- O sistema deve impedir valores que ultrapassem o limite definido.
+
+CT-023 - Validar Ano início igual a zero
+Objetivo: Verificar o comportamento do sistema ao cadastrar Ano início com valor igual a zero.
+Passos:
+1º - Abrir "Novo modelo".
+2º - Informar "0000" no campo Ano início.
+3º - Preencher os demais campos obrigatórios.
+4º - Salvar.
+5º - Abrir o registro para edição.
+6º - Verificar o campo Ano início.
+7º - Tentar salvar novamente.
+Resultado esperado:
+- Caso zero seja inválido, o sistema deve impedir o cadastro.
+- Caso zero seja válido, o valor deve ser apresentado corretamente durante a edição.
+- Um campo obrigatório apresentado vazio não deve permitir o salvamento.
+Resultado encontrado:
+- Após a edição, o campo Ano início é apresentado vazio e o sistema permite salvar sem informar o campo.
+Status:
+- Falha.
+
+CT-024 - Validar relação entre Ano início e Ano fim
+Objetivo: Verificar se o sistema impede períodos inconsistentes.
+Passos:
+1º - Abrir "Novo modelo".
+2º - Informar Ano início = 2026.
+3º - Informar Ano fim = 2025.
+4º - Preencher os demais campos obrigatórios.
+5º - Salvar.
+Resultado esperado:
+- O sistema não deve permitir Ano fim inferior ao Ano início.
+
+CT-026 - Editar modelo
+Objetivo: Verificar se é possível alterar os dados de um modelo existente.
+Passos:
+1º - Localizar um modelo existente.
+2º - Clicar no botão de edição.
+3º - Alterar um ou mais campos.
+4º - Clicar em "Salvar".
+5º - Consultar o registro novamente.
+Resultado esperado:
+- Os dados alterados devem ser apresentados corretamente.
+- As alterações devem permanecer após atualizar a página.
+
+CT-027 - Verificar dados apresentados na edição
+Objetivo: Verificar se o dialog de edição apresenta corretamente os dados existentes.
+Passos:
+1º - Localizar um modelo existente.
+2º - Clicar no botão de edição.
+3º - Comparar os valores apresentados no dialog com os valores exibidos na tabela.
+Resultado esperado:
+- Os valores apresentados no dialog devem corresponder aos dados do registro selecionado.
+
+CT-028 - Cancelar edição
+Objetivo: Verificar se alterações não salvas são descartadas.
+Passos:
+1º - Abrir a edição de um modelo.
+2º - Alterar algum campo.
+3º - Fechar ou cancelar o dialog.
+4º - Consultar o modelo novamente.
+Resultado esperado:
+- As alterações realizadas antes do cancelamento não devem ser persistidas.
+
+CT-029 - Verificar título do dialog durante edição
+Objetivo: Verificar se o título do dialog corresponde à operação realizada.
+Passos:
+1º - Selecionar um modelo existente.
+2º - Clicar no botão de edição.
+3º - Verificar o título do dialog.
+Resultado esperado:
+- O título deve indicar que o usuário está editando um modelo, como "Editar modelo" ou "Edição do modelo".
+
+CT-030 - Verificar Código automático
+Objetivo: Verificar o comportamento do campo "Código (Automático)".
+Passos:
+1º - Abrir "Novo modelo".
+2º - Verificar o campo "Código (Automático)".
+3º - Cadastrar um modelo.
+4º - Abrir o registro para edição.
+Resultado esperado:
+- O código deve ser gerado automaticamente.
+- O código não deve ser alterado manualmente pelo usuário.
+
+CT-031 - Excluir modelo
+Objetivo: Verificar se é possível excluir um modelo existente.
+Passos:
+1º - Localizar um modelo existente.
+2º - Clicar no botão de exclusão.
+3º - Confirmar a exclusão, caso seja apresentada confirmação.
+Resultado esperado:
+- O modelo deve ser removido da tabela.
+- O modelo não deve mais ser encontrado na pesquisa.
+
+CT-032 - Cancelar exclusão
+Objetivo: Verificar se o modelo permanece cadastrado quando a exclusão é cancelada.
+Passos:
+1º - Localizar um modelo existente.
+2º - Clicar no botão de exclusão.
+3º - Cancelar a operação, caso seja apresentada confirmação.
+4º - Consultar o modelo novamente.
+Resultado esperado:
+- O modelo deve permanecer cadastrado.
+
+CT-033 - Verificar persistência após exclusão
+Objetivo: Verificar se um modelo excluído permanece excluído após atualizar a página.
+Passos:
+1º - Excluir um modelo.
+2º - Atualizar a página.
+3º - Pesquisar pelo modelo excluído.
+Resultado esperado:
+- O modelo não deve voltar a aparecer.
+
+CT-034 - Verificar persistência após cadastro
+Objetivo: Verificar se um modelo cadastrado permanece salvo após atualizar a página.
+Passos:
+1º - Cadastrar um modelo válido.
+2º - Atualizar a página.
+3º - Pesquisar pelo modelo cadastrado.
+Resultado esperado:
+- O modelo deve continuar cadastrado e apresentar os mesmos dados.
+
+CT-035 - Verificar persistência após edição
+Objetivo: Verificar se as alterações realizadas em um modelo permanecem salvas após atualizar a página.
+Passos:
+1º - Editar um modelo.
+2º - Alterar algum dado.
+3º - Salvar.
+4º - Atualizar a página.
+5º - Pesquisar pelo modelo.
+Resultado esperado:
+- Os dados alterados devem permanecer salvos.
+
+CT-036 - Verificar exclusão sem confirmação
+Objetivo: Verificar o risco de exclusão acidental de um modelo.
+Passos:
+1º - Localizar um modelo existente.
+2º - Clicar no botão de exclusão.
+Resultado esperado:
+- O sistema deveria solicitar confirmação antes da exclusão definitiva.
+
+CT-037 - Verificar feedback após exclusão
+Objetivo: Verificar se o usuário recebe feedback após realizar uma exclusão.
+Passos:
+1º - Excluir um modelo.
+2º - Observar a tela após a exclusão.
+Resultado esperado:
+- O sistema deveria informar ao usuário que a exclusão foi realizada com sucesso.
+
+CT-038 - Verificar responsividade da tela
+Objetivo: Verificar se a tela pode ser utilizada em diferentes tamanhos de tela.
+Passos:
+1º - Acessar a tela de Modelos.
+2º - Reduzir a largura da janela ou utilizar uma resolução de dispositivo móvel.
+3º - Verificar filtros, tabela e dialog.
+Resultado esperado:
+- Os elementos devem permanecer acessíveis e utilizáveis.
+- Nenhum elemento deve ficar sobreposto ou inacessível.
+
+CT-039 - Verificar opções de Combustível
+Objetivo: Verificar se as opções de combustível são apresentadas corretamente.
+Passos:
+1º - Abrir o cadastro ou edição de um modelo.
+2º - Abrir o campo "Combustível".
+3º - Verificar as opções disponíveis.
+Resultado esperado:
+- As opções devem estar escritas corretamente.
+
+CT-040 - Verificar padrão de data e hora
+Objetivo: Verificar se as informações de inclusão e alteração utilizam o mesmo padrão de data e hora.
+Passos:
+1º - Criar ou localizar um registro.
+2º - Verificar as informações de inclusão.
+3º - Verificar as informações de alteração.
+Resultado esperado:
+- As datas e horários devem utilizar o mesmo padrão de apresentação.
+
+CT-041 - Verificar criação de um modelo duplicado
+Objetivo: Verificar se sistema trata a criação de um modelo iguai a um já existente
+Passos:
+1º - Copiar os dados de um modelo
+2º - Clicar em "Novo modelo"
+3º - Colar dados copiados
+4º - Clicar em "Salvar"
+Resultado esperado:
+- Mensagem avisando ou bloqueando a duplicação de um modelo.

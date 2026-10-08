@@ -1,0 +1,99 @@
+Funcionalidade: Gerenciamento de modelos de veículos
+
+Cenário: Filtrar modelos por fabricante
+Dado que estou na tela de modelos
+Quando seleciono um fabricante no filtro
+Então devem ser exibidos somente os modelos pertencentes ao fabricante selecionado
+
+Cenário: Filtrar modelos por tipo
+Dado que estou na tela de modelos
+Quando seleciono um tipo no filtro
+Então devem ser exibidos somente os modelos pertencentes ao tipo selecionado
+
+Cenário: Utilizar múltiplos filtros simultaneamente
+Dado que estou na tela de modelos
+Quando seleciono um fabricante
+E seleciono uma família
+E seleciono um tipo
+E informo um modelo
+Então devem ser exibidos somente os modelos que atendam a todos os filtros informados
+
+Cenário: Pesquisar modelo sem resultados
+Dado que estou na tela de modelos
+Quando informo um modelo que não existe
+Então o sistema deve informar que nenhum modelo foi encontrado
+
+Cenário: Criar um novo modelo com dados válidos
+Dado que estou na tela de modelos
+Quando clico em "Novo modelo"
+E informo todos os campos obrigatórios com dados válidos
+E clico em "Salvar"
+Então o modelo deve ser criado com sucesso
+E deve ser exibido na lista de modelos
+
+Cenário: Impedir criação de modelo com campos obrigatórios vazios
+Dado que estou na tela de criação de modelo
+Quando deixo um ou mais campos obrigatórios vazios
+E clico em "Salvar"
+Então o sistema deve impedir o cadastro
+E deve informar quais campos precisam ser preenchidos
+
+Cenário: Validar relacionamento entre fabricante e família
+Dado que estou na tela de criação de modelo
+Quando seleciono um fabricante
+Então devem ser disponibilizadas somente as famílias relacionadas ao fabricante selecionado
+
+Cenário: Classificar corretamente o tipo do veículo
+Dado que estou na tela de criação de modelo
+Quando seleciono uma família de veículo
+E informo os demais dados obrigatórios
+E clico em "Salvar"
+Então o modelo deve ser classificado corretamente de acordo com sua família
+
+Cenário: Impedir cadastro com ano final menor que o ano inicial
+Dado que estou na tela de criação de modelo
+Quando informo um ano inicial maior que o ano final
+E clico em "Salvar"
+Então o sistema deve impedir o cadastro
+E deve informar que o ano final não pode ser menor que o ano inicial
+
+Cenário: Editar um modelo existente
+Dado que existe um modelo cadastrado
+Quando acesso a edição do modelo
+E altero seus dados
+E clico em "Salvar"
+Então os dados alterados devem ser salvos
+E o modelo deve apresentar os novos dados na listagem
+
+Cenário: Cancelar a edição de um modelo
+Dado que existe um modelo cadastrado
+E estou na tela de edição do modelo
+Quando altero algum dado
+E cancelo a operação
+Então as alterações não devem ser salvas
+
+Cenário: Solicitar confirmação antes de excluir um modelo
+Dado que existe um modelo cadastrado
+Quando solicito a exclusão do modelo
+Então o sistema deve solicitar confirmação antes de realizar a exclusão
+
+Cenário: Cancelar a exclusão de um modelo
+Dado que existe um modelo cadastrado
+E o sistema solicita confirmação para exclusão
+Quando cancelo a operação
+Então o modelo não deve ser excluído
+
+Cenário: Excluir um modelo
+Dado que existe um modelo cadastrado
+E confirmei a exclusão do modelo
+Quando o sistema concluir a operação
+Então o modelo não deve mais ser exibido na listagem
+
+Cenário: Impedir criação de modelo duplicado
+Dado que existe um modelo cadastrado
+E possuo os mesmos dados de um modelo já existente
+Quando acesso "Novo modelo"
+E informo os mesmos dados do modelo existente
+E clico em "Salvar"
+Então o sistema deve impedir a criação do modelo duplicado
+E deve informar que já existe um modelo com os dados informados

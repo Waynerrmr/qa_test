@@ -1,0 +1,268 @@
+BUG-001 - Filtro por Modelo não é aplicado
+Severidade: Média
+Prioridade: Alta
+Caso de teste relacionado: CT-009
+Passos para reprodução:
+1º - Acessar a tela de Modelos.
+2º - Informar um Modelo existente no campo "Modelo".
+3º - Aguardar o processamento da pesquisa.
+Resultado atual:
+A tabela não é atualizada de acordo com o Modelo informado.
+Resultado esperado:
+A tabela deve ser atualizada e apresentar somente os registros correspondentes ao Modelo informado.
+
+BUG-002 - Filtro por Modelo não funciona ao utilizar múltiplos filtros
+Severidade: Média
+Prioridade: Alta
+Caso de teste relacionado: CT-010
+Passos para reprodução:
+1º - Selecionar um Tipo.
+2º - Selecionar um Fabricante.
+3º - Selecionar uma Família.
+4º - Informar um Modelo.
+5º - Verificar os registros apresentados.
+Resultado atual:
+Os filtros de Tipo, Fabricante e Família são considerados, porém o filtro de Modelo não é aplicado.
+Resultado esperado:
+Todos os filtros informados devem ser considerados simultaneamente na pesquisa.
+
+BUG-003 - Ausência de indicação quando a pesquisa não retorna resultados
+Severidade: Baixa
+Prioridade: Média
+Caso de teste relacionado: CT-011
+Passos para reprodução:
+1º - Informar um valor inexistente em um dos filtros.
+2º - Executar a pesquisa.
+Resultado atual:
+Nenhum registro é apresentado, porém não existe mensagem ou indicação clara informando que não foram encontrados registros.
+Resultado esperado:
+A tabela deve apresentar uma mensagem informando que nenhum registro foi encontrado ou outra indicação clara de que a pesquisa foi realizada sem resultados.
+
+BUG-004 - Tipo do veículo é classificado incorretamente no cadastro
+Severidade: Alta
+Prioridade: Alta
+Caso de teste relacionado: CT-017 e CT-018
+Passos para reprodução:
+1º - Acessar "Novo modelo".
+2º - Selecionar uma Fabricante relacionada a motocicletas.
+3º - Selecionar uma Família relacionada a motocicletas.
+4º - Preencher os demais campos obrigatórios.
+5º - Salvar o cadastro.
+6º - Consultar o registro criado.
+Resultado atual:
+O registro é cadastrado como "AUTOMOVEL", mesmo utilizando uma Família relacionada a motocicletas.
+Resultado esperado:
+O registro deve ser classificado com o Tipo correspondente à Família selecionada.
+
+BUG-005 - Campo Molicar não possui máscara de entrada
+Severidade: Baixa
+Prioridade: Média
+Caso de teste relacionado: CT-019
+Passos para reprodução:
+1º - Acessar "Novo modelo".
+2º - Informar um Molicar válido.
+Resultado atual:
+O sistema aceita somente o formato contendo hífen, porém não apresenta máscara que auxilie o preenchimento no padrão esperado.
+Resultado esperado:
+O campo deve apresentar uma máscara no formato esperado, como "xxxxxxxx-x", facilitando o preenchimento e reduzindo erros de entrada.
+
+BUG-006 - Campo Molicar permite quantidade incorreta de caracteres
+Severidade: Média
+Prioridade: Média
+Caso de teste relacionado: CT-020
+Passos para reprodução:
+1º - Acessar "Novo modelo".
+2º - Informar um Molicar com quantidade inferior ao padrão esperado.
+3º - Informar um Molicar com quantidade superior ao padrão esperado.
+4º - Verificar o comportamento do campo e tentar salvar.
+Resultado atual:
+O sistema permite valores com quantidade de caracteres diferente do padrão de 10 caracteres.
+Resultado esperado:
+O sistema deve limitar ou validar a quantidade de caracteres conforme o formato definido para o Molicar.
+
+BUG-007 - Campo Ano início aceita caracteres não numéricos
+Severidade: Média
+Prioridade: Alta
+Caso de teste relacionado: CT-021
+Passos para reprodução:
+1º - Acessar "Novo modelo".
+2º - Informar caracteres não numéricos no campo "Ano início".
+3º - Tentar salvar.
+Resultado atual:
+O campo "Ano início" aceita caracteres não numéricos.
+O campo "Ano fim" apresenta comportamento diferente e rejeita esses caracteres.
+Resultado esperado:
+Os campos "Ano início" e "Ano fim" devem possuir comportamento consistente e aceitar somente valores numéricos válidos.
+
+BUG-008 - Campo Ano início não possui limite de caracteres
+Severidade: Média
+Prioridade: Média
+Caso de teste relacionado: CT-022
+Passos para reprodução:
+1º - Acessar "Novo modelo".
+2º - Informar uma quantidade de caracteres superior ao tamanho esperado no campo "Ano início".
+3º - Verificar o comportamento do campo.
+Resultado atual:
+O campo permite a inserção de valores com quantidade de caracteres superior ao esperado.
+Resultado esperado:
+O campo deve possuir limite de caracteres compatível com o formato de ano definido pelo sistema.
+
+BUG-009 - Campo Ano início permite valor inválido e posteriormente fica vazio
+Severidade: Alta
+Prioridade: Alta
+Caso de teste relacionado: CT-023
+Passos para reprodução:
+1º - Acessar "Novo modelo".
+2º - Informar "0000" no campo "Ano início".
+3º - Preencher os demais campos obrigatórios.
+4º - Salvar.
+5º - Abrir o registro para edição.
+6º - Verificar o campo "Ano início".
+7º - Tentar salvar novamente sem preencher o campo.
+Resultado atual:
+O cadastro é realizado com "0000".
+Ao abrir a edição, o campo "Ano início" aparece vazio.
+O sistema permite salvar a edição mesmo com o campo obrigatório vazio.
+Resultado esperado:
+O sistema deve impedir o cadastro de um ano inválido.
+Caso o valor seja aceito, ele deve ser apresentado corretamente na edição.
+Um campo obrigatório vazio não deve permitir o salvamento.
+
+BUG-010 - Não existe validação entre Ano início e Ano fim
+Severidade: Alta
+Prioridade: Alta
+Caso de teste relacionado: CT-024
+Passos para reprodução:
+1º - Acessar "Novo modelo".
+2º - Informar Ano início = 2026.
+3º - Informar Ano fim = 2025.
+4º - Preencher os demais campos obrigatórios.
+5º - Salvar.
+Resultado atual:
+O sistema permite o cadastro mesmo com Ano fim inferior ao Ano início.
+Resultado esperado:
+O sistema deve impedir o cadastro e informar que o Ano fim não pode ser inferior ao Ano início.
+
+BUG-011 - Valor de combustível inconsistente entre tabela e edição
+Severidade: Média
+Prioridade: Média
+Caso de teste relacionado: CT-027
+Passos para reprodução:
+1º - Localizar um modelo que possua combustível "Álcool/Gasolina".
+2º - Verificar o valor apresentado na tabela.
+3º - Abrir a edição do registro.
+4º - Comparar o valor apresentado no campo "Combustível".
+Resultado atual:
+Na edição o valor é apresentado como "Álcool/Gasolina".
+Na tabela o valor é apresentado incorretamente como "ÝLCOOL/GASOLINA".
+Resultado esperado:
+O mesmo valor deve ser apresentado corretamente e de forma consistente na tabela e no formulário de edição.
+
+BUG-012 - Título incorreto no dialog de edição
+Severidade: Baixa
+Prioridade: Média
+Caso de teste relacionado: CT-029
+Passos para reprodução:
+1º - Localizar um modelo existente.
+2º - Clicar no botão de edição.
+3º - Verificar o título do dialog.
+Resultado atual:
+O dialog de edição apresenta o título "Novo modelo".
+Resultado esperado:
+O título deve indicar que a operação realizada é uma edição, como "Editar modelo" ou "Edição do modelo".
+
+BUG-013 - Campo Código (Automático) sem identificação funcional adequada
+Severidade: Baixa
+Prioridade: Baixa
+Caso de teste relacionado: CT-030
+Passos para reprodução:
+1º - Acessar "Novo modelo".
+2º - Verificar os campos apresentados.
+3º - Cadastrar um modelo.
+4º - Abrir o registro para edição.
+5º - Verificar o campo "Código (Automático)".
+Resultado atual:
+O código não possui uma função ou explicação clara durante o cadastro e sua finalidade só fica evidente na edição.
+Resultado esperado:
+O campo deve possuir comportamento e identificação claros, sendo apresentado ao usuário somente quando necessário ou devidamente identificado como um valor gerado automaticamente.
+
+BUG-014 - Cancelamento da exclusão não impede a remoção do registro
+Severidade: Alta
+Prioridade: Alta
+Caso de teste relacionado: CT-032
+Passos para reprodução:
+1º - Localizar um modelo existente.
+2º - Clicar no botão de exclusão.
+3º - Cancelar a operação, caso seja apresentada confirmação.
+4º - Consultar o modelo novamente.
+Resultado atual:
+O comportamento esperado de cancelamento da exclusão não é respeitado.
+Resultado esperado:
+Ao cancelar a exclusão, o modelo deve permanecer cadastrado e disponível na tabela.
+
+BUG-015 - Exclusão realizada sem confirmação
+Severidade: Alta
+Prioridade: Alta
+Caso de teste relacionado: CT-036
+Passos para reprodução:
+1º - Localizar um modelo existente.
+2º - Clicar no botão de exclusão.
+Resultado atual:
+O sistema realiza a exclusão sem solicitar confirmação.
+Resultado esperado:
+O sistema deve solicitar confirmação antes de realizar uma exclusão definitiva, reduzindo o risco de exclusões acidentais.
+
+BUG-016 - Ausência de feedback após exclusão
+Severidade: Baixa
+Prioridade: Média
+Caso de teste relacionado: CT-037
+Passos para reprodução:
+1º - Localizar um modelo existente.
+2º - Excluir o modelo.
+3º - Observar a tela após a exclusão.
+Resultado atual:
+Não é apresentado feedback informando ao usuário que a exclusão foi realizada.
+Resultado esperado:
+O sistema deve apresentar uma mensagem ou outro feedback indicando o sucesso da exclusão.
+
+BUG-017 - Opção de combustível apresenta erro ortográfico
+Severidade: Baixa
+Prioridade: Média
+Caso de teste relacionado: CT-039
+Passos para reprodução:
+1º - Acessar "Novo modelo".
+2º - Abrir o campo "Combustível".
+3º - Verificar as opções disponíveis.
+Resultado atual:
+A opção "Disel" é apresentada incorretamente.
+Resultado esperado:
+A opção deve ser apresentada como "Diesel".
+
+BUG-018 - Formatação inconsistente de data de inclusão e alteração
+Severidade: Baixa
+Prioridade: Média
+Caso de teste relacionado: CT-040
+Passos para reprodução:
+1º - Localizar um registro.
+2º - Verificar a data e hora de inclusão.
+3º - Verificar a data e hora de alteração.
+Resultado atual:
+A data de inclusão pode ser apresentada como "8/10/2026", enquanto a data de alteração é apresentada como "01/01/2020".
+Os campos utilizam formatos diferentes para apresentação da data.
+Resultado esperado:
+As datas de inclusão e alteração devem utilizar o mesmo padrão de formatação.
+
+BUG-019 - Permite cadastro de modelo com dados idênticos a outro registro
+Severidade: Média
+Prioridade: Média
+Caso de teste relacionado: CT-041
+Passos para reprodução:
+1º - Localizar um modelo já cadastrado.
+2º - Anotar os dados do registro.
+3º - Acessar "Novo modelo".
+4º - Informar exatamente os mesmos dados do modelo existente.
+5º - Salvar.
+Resultado atual:
+O sistema permite o cadastro de um novo modelo com os mesmos dados de um registro já existente.
+Resultado esperado:
+Caso os dados representem uma combinação que deve ser única, o sistema deve impedir o cadastro duplicado e informar ao usuário que já existe um registro com os mesmos dados.

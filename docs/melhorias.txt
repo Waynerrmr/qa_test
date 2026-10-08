@@ -1,0 +1,149 @@
+MEL-001 - Adicionar botão para limpar filtros
+Descrição:
+Adicionar um botão ou ação "Limpar filtros" para remover todos os filtros aplicados à pesquisa.
+Benefício:
+Permite que o usuário retorne rapidamente à listagem completa sem precisar remover cada filtro individualmente.
+
+MEL-002 - Permitir seleção múltipla nos filtros
+Descrição:
+Permitir seleção de múltiplos valores nos filtros, principalmente nos campos "Fabricante" e "Tipo".
+Benefício:
+Permite realizar pesquisas mais abrangentes em uma única operação, reduzindo a necessidade de executar várias pesquisas separadamente.
+
+MEL-003 - Apresentar orientação no filtro Família quando nenhum Fabricante estiver selecionado
+Descrição:
+Apresentar uma mensagem como "Selecione um fabricante antes" ou manter o campo Família desabilitado até que um Fabricante seja selecionado.
+Benefício:
+Evita que o usuário tente utilizar um filtro que depende de outro campo sem saber qual ação deve realizar.
+
+MEL-004 - Adicionar placeholders aos campos de entrada
+Descrição:
+Adicionar placeholders que orientem o usuário sobre o formato esperado para os campos, principalmente Molicar e Ano.
+Benefício:
+Reduz dúvidas durante o preenchimento e diminui a quantidade de entradas inválidas.
+
+MEL-005 - Utilizar máscara no campo Molicar
+Descrição:
+Implementar uma máscara no campo Molicar para apresentar automaticamente o formato esperado durante a digitação.
+Benefício:
+Facilita o preenchimento e reduz erros relacionados à formatação do valor.
+
+MEL-006 - Ordenar opções de Tipo alfabeticamente
+Descrição:
+Apresentar as opções do campo Tipo em ordem alfabética.
+Benefício:
+Facilita a localização da opção desejada e torna a utilização do campo mais previsível.
+
+MEL-007 - Corrigir nomenclatura e acentuação das opções de Tipo
+Descrição:
+Corrigir os textos apresentados nas opções de Tipo, incluindo "AUTOMOVEL", "UTILITARIO" e "MÝQUINA".
+Benefício:
+Melhora a clareza e a qualidade textual da interface, evitando interpretações incorretas.
+
+MEL-008 - Melhorar comportamento do filtro Família após alteração do Fabricante
+Descrição:
+Ao alterar o Fabricante, atualizar automaticamente as opções de Família e limpar uma Família previamente selecionada caso ela não pertença ao novo Fabricante.
+Benefício:
+Evita combinações inválidas de filtros e reduz a possibilidade de resultados incorretos.
+
+MEL-009 - Implementar paginação na tabela
+Descrição:
+Implementar paginação ou carregamento incremental quando houver grande quantidade de registros.
+Benefício:
+Melhora a organização da tabela, facilita a navegação e pode reduzir a quantidade de dados renderizados simultaneamente.
+
+MEL-010 - Apresentar mensagem quando a pesquisa não retornar resultados
+Descrição:
+Apresentar uma mensagem clara na tabela quando nenhum registro corresponder aos filtros utilizados.
+Benefício:
+Permite que o usuário diferencie uma pesquisa sem resultados de uma falha no carregamento da tabela.
+
+MEL-011 - Implementar ordenação das colunas
+Descrição:
+Permitir a ordenação ascendente e descendente das colunas relevantes da tabela.
+Benefício:
+Facilita a localização, comparação e organização dos registros.
+
+MEL-012 - Renomear coluna "Ação" para "Ações"
+Descrição:
+Alterar o nome da coluna "Ação" para "Ações", considerando que existem múltiplas operações disponíveis.
+Benefício:
+Torna a nomenclatura mais adequada e clara para o conteúdo da coluna.
+
+MEL-013 - Adicionar confirmação antes da exclusão
+Descrição:
+Exibir uma confirmação antes da exclusão definitiva de um modelo.
+Benefício:
+Reduz o risco de exclusões acidentais e permite que o usuário confirme a operação antes de executá-la.
+
+MEL-014 - Adicionar tooltips às ações da tabela
+Descrição:
+Adicionar tooltips aos botões de edição e exclusão.
+Benefício:
+Facilita a identificação das ações, principalmente quando os botões são apresentados apenas por ícones.
+
+MEL-015 - Limitar ou tratar a exibição de textos longos na tabela
+Descrição:
+Definir limite de caracteres ou utilizar recursos como truncamento e tooltip para valores extensos nas colunas.
+Benefício:
+Evita que textos longos comprometam o espaçamento, alinhamento e legibilidade da tabela.
+
+MEL-016 - Corrigir abreviação da coluna "Aut."
+Descrição:
+Apresentar o significado da abreviação "Aut." de forma clara ou utilizar o nome completo da informação.
+Benefício:
+Evita dúvidas sobre o significado do campo e melhora a compreensão da tabela.
+
+MEL-017 - Ocultar ou tornar somente leitura o Código automático no cadastro
+Descrição:
+O campo "Código (Automático)" pode ser ocultado durante o cadastro ou apresentado somente como informação não editável quando necessário.
+Benefício:
+Reduz informações desnecessárias no formulário e evita que o usuário tente alterar um valor gerado automaticamente.
+
+MEL-018 - Utilizar seleção apropriada para campos de Ano
+Descrição:
+Avaliar a utilização de um select ou componente específico para seleção de anos, caso o conjunto de anos válidos seja conhecido.
+Benefício:
+Reduz entradas inválidas e torna a seleção mais rápida e padronizada.
+
+MEL-019 - Padronizar formatação de data e hora
+Descrição:
+Utilizar o mesmo padrão de data e hora para as informações de inclusão e alteração.
+Benefício:
+Melhora a consistência visual e facilita a interpretação das informações.
+
+MEL-020 - Melhorar organização dos campos Fabricante e Família no cadastro
+Descrição:
+Posicionar os campos Fabricante e Família de forma que a dependência entre eles seja clara, mantendo Fabricante antes de Família.
+Benefício:
+Facilita o entendimento da sequência de preenchimento e reduz dúvidas durante o cadastro.
+
+MEL-021 - Melhorar responsividade e legibilidade em telas menores
+Descrição:
+Ajustar espaçamentos, tamanho dos elementos, largura das colunas e apresentação dos dados para diferentes resoluções.
+Benefício:
+Melhora a leitura e usabilidade da tela em dispositivos e janelas menores.
+
+MEL-022 - Adicionar funcionalidade de ajuda
+Descrição:
+Disponibilizar um botão ou área de ajuda contendo orientações sobre os campos, filtros e principais operações da tela.
+Benefício:
+Reduz dúvidas dos usuários e facilita a utilização da funcionalidade sem necessidade de suporte externo.
+
+MEL-023 - Implementar modo escuro
+Descrição:
+Disponibilizar uma opção de tema escuro para a aplicação.
+Benefício:
+Pode melhorar o conforto visual de usuários que preferem interfaces com menor luminosidade, além de oferecer maior flexibilidade de personalização.
+
+MEL-024 - Exibir feedback após operações de cadastro e edição
+Descrição:
+Apresentar uma mensagem de sucesso após o cadastro ou edição de um modelo.
+Benefício:
+Permite que o usuário saiba imediatamente que a operação foi concluída com sucesso e reduz a incerteza sobre o resultado da ação.
+
+MEL-025 - Validar possível duplicidade antes do cadastro
+Descrição:
+Implementar validação para identificar se já existe um modelo com a mesma combinação de dados que deveria ser única.
+Benefício:
+Evita duplicidade de registros, melhora a integridade dos dados e reduz inconsistências nas consultas e relatórios.
