@@ -22,12 +22,12 @@ Avaliação funcional da tela de gerenciamento de veículos, incluindo testes de
 
 ## Casos de teste
 
-Ver `docs/casos-de-teste.md`
+Ver `docs/casos-de-teste.txt`
 
 ## Bugs encontrados
 
-Ver `docs/bugs.md`
+Ver `docs/bugs.txt`
 
 ## Melhorias sugeridas
 
-Ver `docs/melhorias.md`
+Ver `docs/melhorias.txt`

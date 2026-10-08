@@ -1,0 +1,24 @@
+{
+  "name": "qa_test",
+  "version": "1.0.0",
+  "description": "Avaliação funcional da tela de gerenciamento de veículos, incluindo testes de consulta, cadastro, edição e exclusão.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Waynerrmr/qa_test.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Waynerrmr/qa_test/issues"
+  },
+  "homepage": "https://github.com/Waynerrmr/qa_test#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^26.6.4"
+  }
+}
