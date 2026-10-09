@@ -31,3 +31,17 @@ Ver `docs/bugs.txt`
 ## Melhorias sugeridas
 
 Ver `docs/melhorias.txt`
+
+## Instalação
+
+```bash
+npm i
+npx playwright install
+```
+
+## Execução
+
+```bash
+npx playwright test
+```
+

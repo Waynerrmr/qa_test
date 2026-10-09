@@ -82,6 +82,9 @@ test('CT-005 - Filtrar por Família', async ({ page }) => {
     // dá erro pois "Família" na tabela está sem acento
     const indexFamilia = headers.indexOf('Família')
 
+    expect(indexFabricante).toBeGreaterThan(-1);
+    expect(indexFamilia).toBeGreaterThan(-1);
+
     // varrer todas as linhas para encontrar alguma célula com valor diferente
     const cellsFab = await page.locator(`#tableModelos td:nth-child(${indexFabricante + 1})`).all();
     const cellsFam = await page.locator(`#tableModelos td:nth-child(${indexFamilia + 1})`).all();
