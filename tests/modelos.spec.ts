@@ -79,7 +79,7 @@ test('CT-005 - Filtrar por Família', async ({ page }) => {
     // Encontrar posição do Fabricante na tabela
     const headers = await page.locator('#tableModelos th').allTextContents();
     const indexFabricante = headers.indexOf('Fabricante')
-    // dá erro pois "Família" na tabela está sem acento
+    // BUG conhecido: "Família" na tabela está sem acento
     const indexFamilia = headers.indexOf('Família')
 
     expect(indexFabricante).toBeGreaterThan(-1);
@@ -92,6 +92,8 @@ test('CT-005 - Filtrar por Família', async ({ page }) => {
         diferente = await cell.textContent() !== fabricanteSelectProps.texto || await cell.textContent() === null;
         if (diferente) break;
     }
+    expect(diferente).toBe(false);
+
     for (const cell of cellsFam) {
         diferente = await cell.textContent() !== familiaSelectProps.texto || await cell.textContent() === null;
         if (diferente) break;

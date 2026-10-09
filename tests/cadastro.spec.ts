@@ -4,28 +4,19 @@ import utils from '../utils';
 test('CT-012 - Abrir cadastro de novo modelo', async ({ page }) => {
     await utils.acessarTelaModelos(page)
 
-    await page.getByRole('button', { name: 'Novo modelo' }).click();
-
-    const dialog = page.locator('#modalNovoVeiculo')
-    await expect(dialog).toBeVisible();
+    const dialog = await utils.abrirDialogNovo(page)
 
     // Campos devem estar disponíveis e sem dados preenchidos
     await expect(dialog.locator('#novoFabricante')).toBeVisible();
     await expect(dialog.locator('#novaFamilia')).toBeVisible();
-
-    const inputMolicar = dialog.locator('.form-group').filter({ hasText: 'Molicar' }).locator('input')
-    const inputModelo = dialog.locator('.form-group').filter({ hasText: 'Modelo' }).locator('input')
-    await expect(inputMolicar).toHaveValue('');
-    await expect(inputModelo).toHaveValue('');
+    await expect(utils.campoPorLabel(dialog, 'Molicar')).toHaveValue('');
+    await expect(utils.campoPorLabel(dialog, 'Modelo')).toHaveValue('');
 });
 
 test('CT-013 - Cadastrar modelo com dados válidos', async ({ page }) => {
     await utils.acessarTelaModelos(page)
 
-    await page.getByRole('button', { name: 'Novo modelo' }).click();
-
-    const dialog = page.locator('#modalNovoVeiculo')
-    await expect(dialog).toBeVisible();
+    const dialog = await utils.abrirDialogNovo(page)
 
     // Fabricante e Família
     const selectFabricante = dialog.locator('#novoFabricante')
@@ -37,16 +28,16 @@ test('CT-013 - Cadastrar modelo com dados válidos', async ({ page }) => {
     await selectFamilia.selectOption(valorFam!);
 
     // Demais campos
-    await dialog.locator('.form-group').filter({ hasText: 'Molicar' }).locator('input').fill('99999999-9');
-    await dialog.locator('.form-group').filter({ hasText: 'Modelo' }).locator('input').fill('Modelo Teste CT13');
-    await dialog.locator('.form-group').filter({ hasText: 'Ano início' }).locator('input').fill('2020');
-    await dialog.locator('.form-group').filter({ hasText: 'Ano fim' }).locator('input').fill('2026');
+    await utils.campoPorLabel(dialog, 'Molicar').fill('99999999-9');
+    await utils.campoPorLabel(dialog, 'Modelo').fill('Modelo Teste CT13');
+    await utils.campoPorLabel(dialog, 'Ano início').fill('2020');
+    await utils.campoPorLabel(dialog, 'Ano fim').fill('2026');
     // Campo de Portas ainda não segue funcionamento dos outros campos
-    await dialog.locator('.form-group').filter({ hasText: 'Portas' }).locator('input').fill('4');
-    await dialog.locator('.form-group').filter({ hasText: 'Cilindradas' }).locator('input').fill('1000');
-    await dialog.locator('.form-group').filter({ hasText: 'Cavalos' }).locator('input').fill('100');
+    await utils.campoPorLabel(dialog, 'Portas').fill('4');
+    await utils.campoPorLabel(dialog, 'Cilindradas').fill('1000');
+    await utils.campoPorLabel(dialog, 'Cavalos').fill('100');
 
-    const selectCombustivel = dialog.locator('.form-group').filter({ hasText: 'Combustível' }).locator('select')
+    const selectCombustivel = utils.selectPorLabel(dialog, 'Combustível')
     const { valor: valorComb } = await utils.propsOptionSelect(page, selectCombustivel, 1)
     await selectCombustivel.selectOption(valorComb!);
 
@@ -62,10 +53,7 @@ test('CT-013 - Cadastrar modelo com dados válidos', async ({ page }) => {
 test('CT-014 - Tentar cadastrar modelo sem preencher campos obrigatórios', async ({ page }) => {
     await utils.acessarTelaModelos(page)
 
-    await page.getByRole('button', { name: 'Novo modelo' }).click();
-
-    const dialog = page.locator('#modalNovoVeiculo')
-    await expect(dialog).toBeVisible();
+    const dialog = await utils.abrirDialogNovo(page)
 
     // Salvar sem colocar nd
     await dialog.locator('#btnSalvar').click();
@@ -80,33 +68,24 @@ test('CT-014 - Tentar cadastrar modelo sem preencher campos obrigatórios', asyn
 test('CT-015 - Cancelar cadastro de novo modelo', async ({ page }) => {
     await utils.acessarTelaModelos(page)
 
-    await page.getByRole('button', { name: 'Novo modelo' }).click();
-
-    const dialog = page.locator('#modalNovoVeiculo')
-    await expect(dialog).toBeVisible();
+    const dialog = await utils.abrirDialogNovo(page)
 
     // Preencher alguns campos
-    await dialog.locator('.form-group').filter({ hasText: 'Modelo' }).locator('input').fill('Modelo que não deve ser salvo');
+    await utils.campoPorLabel(dialog, 'Modelo').fill('Modelo que não deve ser salvo');
 
     // Cancelar
     await dialog.locator('#btnCancelar').click();
     await expect(dialog).not.toBeVisible();
 
     // Abrir novamente, campos devem estar limpos
-    await page.getByRole('button', { name: 'Novo modelo' }).click();
-    await expect(dialog).toBeVisible();
-
-    const inputModelo = dialog.locator('.form-group').filter({ hasText: 'Modelo' }).locator('input')
-    await expect(inputModelo).toHaveValue('');
+    await utils.abrirDialogNovo(page)
+    await expect(utils.campoPorLabel(dialog, 'Modelo')).toHaveValue('');
 });
 
 test('CT-016 - Verificar relacionamento entre Fabricante e Família no cadastro', async ({ page }) => {
     await utils.acessarTelaModelos(page)
 
-    await page.getByRole('button', { name: 'Novo modelo' }).click();
-
-    const dialog = page.locator('#modalNovoVeiculo')
-    await expect(dialog).toBeVisible();
+    const dialog = await utils.abrirDialogNovo(page)
 
     // Selecionar Fabricante
     const selectFabricante = dialog.locator('#novoFabricante')
@@ -121,16 +100,16 @@ test('CT-016 - Verificar relacionamento entre Fabricante e Família no cadastro'
     await selectFamilia.selectOption(valorFam!);
 
     // Preencher restante
-    await dialog.locator('.form-group').filter({ hasText: 'Molicar' }).locator('input').fill('99999916-0');
-    await dialog.locator('.form-group').filter({ hasText: 'Modelo' }).locator('input').fill('Modelo Teste CT16');
-    await dialog.locator('.form-group').filter({ hasText: 'Ano início' }).locator('input').fill('2021');
-    await dialog.locator('.form-group').filter({ hasText: 'Ano fim' }).locator('input').fill('2023');
+    await utils.campoPorLabel(dialog, 'Molicar').fill('99999916-0');
+    await utils.campoPorLabel(dialog, 'Modelo').fill('Modelo Teste CT16');
+    await utils.campoPorLabel(dialog, 'Ano início').fill('2021');
+    await utils.campoPorLabel(dialog, 'Ano fim').fill('2023');
     // Campo de Portas ainda não segue funcionamento dos outros campos
-    await dialog.locator('.form-group').filter({ hasText: 'Portas' }).locator('input').fill('4');
-    await dialog.locator('.form-group').filter({ hasText: 'Cilindradas' }).locator('input').fill('1000');
-    await dialog.locator('.form-group').filter({ hasText: 'Cavalos' }).locator('input').fill('100');
+    await utils.campoPorLabel(dialog, 'Portas').fill('4');
+    await utils.campoPorLabel(dialog, 'Cilindradas').fill('1000');
+    await utils.campoPorLabel(dialog, 'Cavalos').fill('100');
 
-    const selectCombustivel = dialog.locator('.form-group').filter({ hasText: 'Combustível' }).locator('select')
+    const selectCombustivel = utils.selectPorLabel(dialog, 'Combustível')
     const { valor: valorComb } = await utils.propsOptionSelect(page, selectCombustivel, 1)
     await selectCombustivel.selectOption(valorComb!);
 
@@ -138,7 +117,7 @@ test('CT-016 - Verificar relacionamento entre Fabricante e Família no cadastro'
     await expect(dialog).not.toBeVisible();
 
     // Linha na tabela deve ter o Fabricante e Família corretos
-    const linha = page.locator('#tableModelos td').filter({ hasText: 'Modelo Teste CT16' })
+    const linha = page.locator('#tableModelos tbody tr').filter({ hasText: 'Modelo Teste CT16' })
     await expect(linha).toBeVisible();
     await expect(linha).toContainText(textoFab!);
     await expect(linha).toContainText(textoFam!);
